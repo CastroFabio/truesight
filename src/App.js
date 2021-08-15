@@ -62,7 +62,7 @@ class App extends Component {
 
   onImageSubmit= () => {
     this.setState({imageUrl: this.state.input})
-      fetch('http://localhost:3000/imageurl',{
+      fetch('https://vast-temple-97785.herokuapp.com/imageurl',{
         method: 'post',
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({
@@ -74,7 +74,7 @@ class App extends Component {
         console.log(response)
         this.setState({valor: response.outputs[0].data.regions[0].data.concepts[0].value})
         if(response && this.state.valor > 0.8){
-          fetch('http://localhost:3000/image',{
+          fetch('https://vast-temple-97785.herokuapp.com/image',{
             method: 'put',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
